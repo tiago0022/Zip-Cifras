@@ -1,10 +1,12 @@
 const express = require('express');
 const { run, client } = require('./db');
-const songsRouter = require('./routes/songs'); // Import the songs router
+const songsRouter = require('./routes/songs');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
 
+app.use(cors());
 app.use('/songs', songsRouter);
 
 run().then(() => {
