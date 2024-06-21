@@ -1,4 +1,4 @@
-# Zip Cifras
+# (WIP) Zip Cifras
 
 This app is for using and sharing simplified song ciphers
 
