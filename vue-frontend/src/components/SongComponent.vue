@@ -1,13 +1,13 @@
 <template>
   <div>
     
-    <h1>Zip Cifras</h1>
+    <h1>Zip Cifras (pre-alpha)</h1>
     
     <h2>{{ song.name }}</h2>
     
     <ul v-if="song.sections">
       <li v-for="(section, index) in song.sections" :key="index">
-        <h3>{{ section.name }}:</h3>
+        <h3 v-if="section.name">{{ section.name }}:</h3>
           <span v-for="(token, index) in section.tokens" :key="index">
             {{ token.content }}&nbsp;
           </span>
