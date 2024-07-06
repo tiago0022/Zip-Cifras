@@ -7,14 +7,14 @@ const { convertStringToSongData } = require('./songConversionService');
 
 async function processSongString(songString) {
 
-    const structuredData = convertStringToSongData(songString);
+    const structuredData = await convertStringToSongData(songString);
 
     try {
 
         const existingSong = await songsCollection.findOne({ name: structuredData.name });
 
         if (existingSong) {
-            await songsCollection.updateOne({ name: structuredData.name }, { $set: structuredData });
+            await songsCollection.updateOne({ name: structuredData.name }, { $set: structuredData }); // TODO: make case insensitive
             console.log(`Updated song: ${structuredData.name}`);
         } else {
             await songsCollection.insertOne(structuredData);
